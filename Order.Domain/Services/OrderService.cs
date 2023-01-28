@@ -1,4 +1,5 @@
 ﻿
+using Order.Domain.Helper;
 using Order.Domain.Interfaces;
 using Order.Domain.Model;
 using System;
@@ -38,6 +39,7 @@ namespace Order.Domain.Services
         public async Task<List<Model.Order>> GetAll()
         {
             var orders = await _orderRepository.GetAll();
+            JSONHelper.WriteOrdersToJSONFile(orders);
             return orders;
         }
         public async Task Add(Model.Order order)
