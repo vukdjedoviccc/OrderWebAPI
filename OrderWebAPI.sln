@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Order.Persistance", "Order.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Order.Repositories", "Order.Repositories\Order.Repositories.csproj", "{585238BF-0602-40D8-9275-AA4DD38D3CB6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderWebAPITest", "OrderWebAPITest\OrderWebAPITest.csproj", "{6B035086-A20F-4D96-B2F8-6739EC685744}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{585238BF-0602-40D8-9275-AA4DD38D3CB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{585238BF-0602-40D8-9275-AA4DD38D3CB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{585238BF-0602-40D8-9275-AA4DD38D3CB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B035086-A20F-4D96-B2F8-6739EC685744}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B035086-A20F-4D96-B2F8-6739EC685744}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B035086-A20F-4D96-B2F8-6739EC685744}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B035086-A20F-4D96-B2F8-6739EC685744}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
