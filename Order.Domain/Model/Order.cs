@@ -2,7 +2,9 @@
 
 namespace Order.Domain.Model
 {
-    
+    /// <summary>
+    /// Klasa koja se odnosi na naručivanje
+    /// </summary>
     public class Order
     {
         private int _id;
@@ -10,13 +12,22 @@ namespace Order.Domain.Model
         private DateTime? _date;
         private List<OrderItem>? _orderItems;
 
-        
+        /// <summary>
+        /// Bezparametarski konstruktor klase Order 
+        /// </summary>
         public Order()
         {
              
         }
 
-       
+        /// <summary>
+        /// Parametarski konstruktor klase Order 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="customerId"></param>
+        /// <param name="date"></param>
+        /// <param name="totalAmount"></param>
+        /// <param name="orderItems"></param>
         public Order(int id, int customerId, DateTime? date, decimal totalAmount, List<OrderItem>? orderItems)
         {
             Id = id;
@@ -26,7 +37,9 @@ namespace Order.Domain.Model
             OrderItems = orderItems;
         }
 
-        
+        /// <summary>
+        /// Id narudžbine
+        /// </summary>
         public int Id
         {
             get
@@ -41,7 +54,9 @@ namespace Order.Domain.Model
             }
         }
 
-        
+        /// <summary>
+        /// Id kupca
+        /// </summary>
         public int CustomerId
         {
             get
@@ -56,7 +71,9 @@ namespace Order.Domain.Model
             }
         }
 
-       
+        /// <summary>
+        /// Vreme narudžbine
+        /// </summary>
         public DateTime? Date
         {
             get
@@ -70,10 +87,14 @@ namespace Order.Domain.Model
             }
         }
 
-        
+        /// <summary>
+        /// Ukupan iznos narudžbine
+        /// </summary>
         public decimal TotalAmount { get; set; }
 
-        
+        /// <summary>
+        /// Lista stavki narudžbine
+        /// </summary>
         public List<OrderItem>? OrderItems
         {
             get
@@ -87,7 +108,9 @@ namespace Order.Domain.Model
             }
         }
 
-        
+        /// <summary>
+        /// Metoda koja služi za računanje ukupnog iznosa narudžbine
+        /// </summary>
         public void CalculateTotalAmount()
         {
             foreach (var item in OrderItems)

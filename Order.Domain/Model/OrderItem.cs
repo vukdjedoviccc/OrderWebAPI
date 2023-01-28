@@ -2,7 +2,9 @@
 
 namespace Order.Domain.Model
 {
-    
+    /// <summary>
+    /// Klasa koja se odnosi na stavke narudzbine
+    /// </summary>
     public class OrderItem
     {
         private int _id;
@@ -11,13 +13,22 @@ namespace Order.Domain.Model
         private int _productId;
         private Product _product;
 
-        
+        /// <summary>
+        /// Bezparametarski konstruktor klase OrderItem 
+        /// </summary>
         public OrderItem()
         {
 
         }
 
-        
+        /// <summary>
+        /// Parametarski konstruktor klase OrderItem 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="quantity"></param>
+        /// <param name="amount"></param>
+        /// <param name="productId"></param>
+        /// <param name="product"></param>
         public OrderItem(int id, int quantity, decimal amount, int productId, Product product)
         {
             Id = id;
@@ -27,7 +38,9 @@ namespace Order.Domain.Model
             Product = product;
         }
 
-        
+        /// <summary>
+        /// Id stavke narudžbine
+        /// </summary>
         public int Id 
         {
             get
@@ -42,7 +55,9 @@ namespace Order.Domain.Model
             }
         }
 
-
+        /// <summary>
+        /// Količina stavke narudžbine
+        /// </summary>
         public int Quantity 
         {
             get
@@ -55,8 +70,9 @@ namespace Order.Domain.Model
                 _quantity = value;
             }
         }
-       
-
+        /// <summary>
+        /// Iznos stavke narudžbine
+        /// </summary>
         public decimal Amount 
         {
             get
@@ -70,7 +86,9 @@ namespace Order.Domain.Model
             }
         }
 
-        
+        /// <summary>
+        /// Proizvod na koji se stavka narudžbine odnosi
+        /// </summary>
         public Product Product
         {
             get
@@ -84,7 +102,9 @@ namespace Order.Domain.Model
             }
         }
 
-        
+        /// <summary>
+        /// Id proizvoda na koji se stavka narudžbine odnosi
+        /// </summary>
         public int ProductId 
         {
             get

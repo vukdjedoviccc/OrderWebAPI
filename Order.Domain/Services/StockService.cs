@@ -8,13 +8,19 @@ using System.Threading.Tasks;
 
 namespace Order.Domain.Services
 {
-   
+    /// <summary>
+    /// Klasa koja predstavlja servis za pozivanje metoda nad repozitorijumom skladišta kako bi se pristupilo bazi
+    /// </summary>
     public class StockService : IStockService
     {
-        
+        // <summary>
+        /// Properti repozitorijuma skladišta koji se inject-uje u konstruktoru servisa
+        /// </summary>
         private readonly IStockRepository _stockRepository;
-        
-
+        /// <summary>
+        /// Konstruktor sa parametrom repozitorijuma skladišta koji inicijalizuje ovaj repozitorijum
+        /// </summary>
+        /// <param name="stockRepository"></param>
         public StockService(IStockRepository stockRepository)
         {
             _stockRepository = stockRepository;

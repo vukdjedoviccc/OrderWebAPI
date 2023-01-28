@@ -13,10 +13,15 @@ namespace Order.Repositories
 {
     public class CompanyRepository : ICompanyRepository
     {
-        
+        // <summary>
+        /// Properti datacontext-a zaduženog za rad sa bazom
+        /// </summary>
         private readonly DataContext _dataContext;
 
-        
+        /// <summary>
+        /// Konstruktor sa parametrom datacontext-a(omogućava direktan pristup tabelama u bazi) koji ga inicijalizuje 
+        /// </summary>
+        /// <param name="dataContext"></param>
         public CompanyRepository(DataContext dataContext)
         {
             _dataContext = dataContext;

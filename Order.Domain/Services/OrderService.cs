@@ -1,5 +1,4 @@
-﻿
-using Order.Domain.Interfaces;
+﻿using Order.Domain.Interfaces;
 using Order.Domain.Model;
 using System;
 using System.Collections.Generic;
@@ -11,14 +10,24 @@ using System.Threading.Tasks;
 
 namespace Order.Domain.Services
 {
-    
+    /// <summary>
+    /// Klasa koja predstavlja servis za pozivanje metoda nad repozitorijumom narudžbine kako bi se pristupilo bazi
+    /// </summary>
     public class OrderService : IOrderService
     {
-        
+        /// <summary>
+        /// Properti interfejsa repozitorijuma narudžbine koji se inject-uje u konstruktoru servisa
+        /// </summary>
         private readonly IOrderRepository _orderRepository;
-        
+        /// <summary>
+        /// Properti repozitorijuma proizvoda koji se inject-uje u konstruktoru servisa
+        /// </summary>
         private readonly IProductRepository _productRepository;
-        
+        /// <summary>
+        /// Konstruktor sa parametrima repozitorijuma narudžbine i proizvoda koje inicijalizuje ovaj repozitorijum
+        /// </summary>
+        /// <param name="orderRepository"></param>
+        /// <param name="productRepository"></param>
         public OrderService(IOrderRepository orderRepository, IProductRepository productRepository)
         {
             _orderRepository = orderRepository;
@@ -54,7 +63,10 @@ namespace Order.Domain.Services
             await _orderRepository.SaveChanges();
         }
 
-       
+        /// <summary>
+        /// Metoda koja postavlja vrednosti narudžbine
+        /// </summary>
+        /// <param name="order"></param>
         private async Task<Model.Order> SetOrder(Model.Order order)
         {
             var productsFromDB = await _productRepository.ReturnProductsFromDB(order.OrderItems);

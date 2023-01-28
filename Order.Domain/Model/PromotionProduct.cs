@@ -2,7 +2,9 @@
 
 namespace Order.Domain.Model
 {
-    
+    /// <summary>
+    /// Klasa domena koja se odnosi na proizvode koji imaju promocije
+    /// </summary>
     public class PromotionProduct
     {
         private int _productId;
@@ -10,13 +12,21 @@ namespace Order.Domain.Model
         private Product _product;
         private Promotion _promotion;
 
-       
+        /// <summary>
+        /// Bezparametarski konstruktor klase PromotionProduct 
+        /// </summary>
         public PromotionProduct()
         {
 
         }
 
-        
+        /// <summary>
+        /// Parametarski konstruktor klase Customer 
+        /// </summary>
+        /// <param name="productId"></param>
+        /// <param name="promotionId"></param>
+        /// <param name="adress"></param>
+        /// <param name="phoneNumber"></param>
         public PromotionProduct(int productId, int promotionId, Product product, Promotion promotion)
         {
             ProductId = productId;
@@ -25,7 +35,9 @@ namespace Order.Domain.Model
             Promotion = promotion;
         }
 
-        
+        /// <summary>
+        /// Objekat proizvoda
+        /// </summary>
         public Product Product
         {
             get
@@ -39,7 +51,9 @@ namespace Order.Domain.Model
             }
         }
 
-        
+        /// <summary>
+        /// Objekat promocije
+        /// </summary>
         public Promotion Promotion
         {
             get
@@ -53,7 +67,9 @@ namespace Order.Domain.Model
             }
         }
 
-        
+        /// <summary>
+        /// Id proizvoda
+        /// </summary>
         public int ProductId 
         {
             get
@@ -67,7 +83,9 @@ namespace Order.Domain.Model
                 _productId = value;
             }
         }
-        
+        /// <summary>
+        /// Id promocije
+        /// </summary>
         public int PromotionId
         {
             get

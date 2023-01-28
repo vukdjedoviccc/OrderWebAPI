@@ -11,12 +11,19 @@ using System.Threading.Tasks;
 
 namespace Order.Repositories
 {
-   
+    /// <summary>
+    /// Klasa koja predstavlja repozitorijum osobe za pozivanje odgovarajućih metoda koje rade direktno nad bazom
+    /// </summary>
     public class PersonRepository : IPersonRepository
     {
-        
+        // <summary>
+        /// Properti datacontext-a zaduženog za rad sa bazom
+        /// </summary>
         private readonly DataContext _dataContext;
-        
+        /// <summary>
+        /// Konstruktor sa parametrom datacontext-a(omogućava direktan pristup tabelama u bazi) koji ga inicijalizuje 
+        /// </summary>
+        /// <param name="dataContext"></param>
         public PersonRepository(DataContext dataContext)
         {
             _dataContext = dataContext;

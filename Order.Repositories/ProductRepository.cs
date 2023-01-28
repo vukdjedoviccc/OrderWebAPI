@@ -11,12 +11,19 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Order.Repositories
 {
-    
+    /// <summary>
+    /// Klasa koja predstavlja repozitorijum proizvoda za pozivanje metoda koje rade direktno nad bazom
+    /// </summary>
     public class ProductRepository : IProductRepository 
     {
-        
+        // <summary>
+        /// Properti datacontext-a zaduženog za rad sa bazom
+        /// </summary>
         private readonly DataContext _dataContext;
-        
+        /// <summary>
+        /// Konstruktor sa parametrom datacontext-a(omogućava direktan pristup tabelama u bazi) koji ga inicijalizuje 
+        /// </summary>
+        /// <param name="dataContext"></param>
         public ProductRepository(DataContext dataContext) 
         {
             _dataContext = dataContext;

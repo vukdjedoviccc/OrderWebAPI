@@ -6,13 +6,20 @@ using Order.Persistance.Model;
 
 namespace Order.Repositories
 {
-    
+    /// <summary>
+    /// Klasa koja predstavlja repozitorijum narudžbine za pozivanje odgovarajućih metoda koje rade direktno nad bazom
+    /// </summary>
     public class OrderRepository : IOrderRepository
     {
-        
+        // <summary>
+        /// Properti datacontext-a zaduženog za rad sa bazom
+        /// </summary>
         private readonly DataContext _dataContext;
 
-       
+        /// <summary>
+        /// Konstruktor sa parametrom datacontext-a(omogućava direktan pristup tabelama u bazi) koji ga inicijalizuje 
+        /// </summary>
+        /// <param name="dataContext"></param>
         public OrderRepository(DataContext dataContext) 
         {
             _dataContext = dataContext;
@@ -55,7 +62,10 @@ namespace Order.Repositories
             List<Domain.Model.Order> orders = records.Select(CreateOrder).ToList();
             return orders;
         }
-       
+        /// <summary>
+        /// Metoda koja kreira narudžbinu
+        /// </summary>
+        /// <param name="r"></param>
         private Domain.Model.Order CreateOrder(OrderRecord r)
         {
             Domain.Model.Order order = new Domain.Model.Order

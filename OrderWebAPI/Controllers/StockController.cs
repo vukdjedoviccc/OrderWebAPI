@@ -6,28 +6,40 @@ using Order.Domain.Services;
 
 namespace OrderWebAPIFaza4.Controllers
 {
-    
+    /// <summary>
+    /// Kontroler koji služi za pozivanje operacija nad objektom "Stock"
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class StockController : ControllerBase
     {
-       
+        /// <summary>
+        /// Properti interfejsa servisa skladišta koji se inject-uje u konstruktoru servisa
+        /// </summary>
         private readonly IStockService _stockService;
 
-        
+        /// <summary>
+        /// Konstruktor sa parametrom servisa skaldišta koji inicijalizuje ovaj servis
+        /// </summary>
+        /// <param name="stockService"></param>
         public StockController(IStockService stockService)
         {
             _stockService = stockService;
         }
 
-        
+        /// <summary>
+        /// Metoda koja služi za vraćanje liste svih redova skladišta iz baze
+        /// </summary>
         [HttpGet("getAll")]
         public async Task<ActionResult<List<Stock>>> GetAll()
         {
             return await _stockService.GetAll();
         }
 
-        
+        /// <summary>
+        /// Metoda koja služi za dodavanje novog proizvoda u skladište
+        /// </summary>
+        /// <param name="request"></param>
         [HttpPost("AddProductToStock")]
         public async Task Post(CreateStockRequest request)
         {
@@ -45,7 +57,10 @@ namespace OrderWebAPIFaza4.Controllers
             }
         }
 
-        
+        /// <summary>
+        /// Metoda koja služi za ažuriranje količine proizvoda u skladištu
+        /// </summary>
+        /// <param name="request"></param>
         [HttpPut("UpdateProductQuantity")]
         public async Task Put(CreateStockRequest request)
         {

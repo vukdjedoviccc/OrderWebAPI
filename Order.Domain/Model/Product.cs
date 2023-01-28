@@ -2,7 +2,9 @@
 
 namespace Order.Domain.Model
 {
-    
+    /// <summary>
+    /// Klasa koja se odnosi na proizvode
+    /// </summary>
     public class Product
     {
         private int _id;
@@ -10,13 +12,21 @@ namespace Order.Domain.Model
         private decimal _price;
         private decimal? _discount;
 
-        
+        /// <summary>
+        /// Bezparametarski konstruktor klase Product 
+        /// </summary>
         public Product()
         {
 
         }
 
-        
+        /// <summary>
+        /// Parametarski konstruktor klase Product 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="name"></param>
+        /// <param name="price"></param>
+        /// <param name="discount"></param>
         public Product(int id, string name, decimal price, decimal? discount)
         {
             Id = id;
@@ -25,7 +35,9 @@ namespace Order.Domain.Model
             Discount = discount;
         }
 
-        
+        /// <summary>
+        /// Id proizvoda
+        /// </summary>
         public int Id
         {
             get
@@ -40,7 +52,9 @@ namespace Order.Domain.Model
             }
         }
 
-        
+        /// <summary>
+        /// Ime proizvoda
+        /// </summary>
         public string Name
         {
             get
@@ -55,7 +69,9 @@ namespace Order.Domain.Model
             }
         }
 
-        
+        /// <summary>
+        /// Cena proizvoda
+        /// </summary>
         public decimal Price 
         {
             get
@@ -69,7 +85,9 @@ namespace Order.Domain.Model
             }
         }
 
-        
+        /// <summary>
+        /// Popust na proizvod
+        /// </summary>
         public decimal? Discount
         {
             get
