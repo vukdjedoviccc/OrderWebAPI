@@ -8,12 +8,19 @@ using System.Threading.Tasks;
 
 namespace Order.Domain.Services
 {
-   
+    /// <summary>
+    /// Klasa koja predstavlja servis za pozivanje metoda nad repozitorijumom kompanije kako bi se pristupilo bazi
+    /// </summary>
     public class CompanyService : ICompanyService
     {
-       
+        /// <summary>
+        /// Properti interfejsa repozitorijuma kompanije koji se inject-uje u konstruktoru servisa
+        /// </summary>
         private readonly ICompanyRepository _companyRepository;
-        
+        /// <summary>
+        /// Konstruktor sa parametrom repozitorijuma kompanije koji inicijalizuje ovaj repozitorijum
+        /// </summary>
+        /// <param name="companyRepository"></param>
         public CompanyService(ICompanyRepository companyRepository)
         {
             _companyRepository = companyRepository;

@@ -7,26 +7,40 @@ using System.Threading.Tasks;
 
 namespace Order.Domain.Model
 {
-    
+    /// <summary>
+    /// Klasa koja se odnosi na kompanije
+    /// </summary>
     public class Company : Customer
     {
         private string _fullName;
         private string _registrationNumber;
 
-       
+        /// <summary>
+        /// Bezparametarski konstruktor klase Company 
+        /// </summary>
         public Company() : base()
         {
 
         }
 
-        
+        /// <summary>
+        /// Parametarski konstruktor klase Customer 
+        /// </summary>
+        /// <param name="fullName"></param>
+        /// <param name="registrationNumber"></param>
+        /// <param name="adress"></param>
+        /// <param name="phoneNumber"></param>
+        /// <param name="email"></param>
+        /// <param name="id"></param>
         public Company(string fullName, string registrationNumber, string adress, string phoneNumber, string email, int id) : base(adress, phoneNumber, email, id)
         {
             FullName = fullName;
             RegistrationNumber = registrationNumber;
         }
 
-        
+        /// <summary>
+        /// Puno ime kompanije
+        /// </summary>
         public string FullName
         {
             get
@@ -41,7 +55,9 @@ namespace Order.Domain.Model
             }
         }
 
-        
+        /// <summary>
+        /// Registracioni broj kompanije
+        /// </summary>
         public string RegistrationNumber
         {
             get

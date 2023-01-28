@@ -11,12 +11,19 @@ using System.Threading.Tasks;
 
 namespace Order.Repositories
 {
-    
+    /// <summary>
+    /// Klasa koja predstavlja repozitorijum promocije za pozivanje metoda koje rade direktno nad bazom
+    /// </summary>
     public class PromotionRepository : IPromotionRepository
     {
-        
+        // <summary>
+        /// Properti datacontext-a zaduženog za rad sa bazom
+        /// </summary>
         private readonly DataContext _dataContext;
-       
+        /// <summary>
+        /// Konstruktor sa parametrom datacontext-a(omogućava direktan pristup tabelama u bazi) koji ga inicijalizuje 
+        /// </summary>
+        /// <param name="dataContext"></param>
         public PromotionRepository(DataContext dataContext)
         {
             _dataContext = dataContext;
@@ -90,7 +97,10 @@ namespace Order.Repositories
             } else 
                 return null;
         }
-        
+        /// <summary>
+        /// Metoda koja vraća proizvod koji ima aktivnu promociju
+        /// </summary>
+        /// <param name="orderItems"></param>
         private Product GetProduct(PromotionProductRecord promotionProductRecord)
         {
             return new Product

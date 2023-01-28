@@ -7,7 +7,9 @@ using System.Threading.Tasks;
 
 namespace Order.Domain.Model
 {
-    
+    /// <summary>
+    /// Klasa koja se odnosi na kupce
+    /// </summary>
     public class Customer
     {
         private string _adress;
@@ -15,13 +17,21 @@ namespace Order.Domain.Model
         private string _email;
         private int _id;
 
-       
+        /// <summary>
+        /// Bezparametarski konstruktor klase Customer 
+        /// </summary>
         public Customer()
         {
 
         }
 
-       
+        /// <summary>
+        /// Parametarski konstruktor klase Customer 
+        /// </summary>
+        /// <param name="adress"></param>
+        /// <param name="phoneNumber"></param>
+        /// <param name="email"></param>
+        /// <param name="id"></param>
         public Customer(string adress, string phoneNumber, string email, int id)
         {
             Adress = adress;
@@ -30,7 +40,9 @@ namespace Order.Domain.Model
             Id = id;
         }
 
-       
+        /// <summary>
+        /// Id kupca
+        /// </summary>
         public int Id
         {
             get
@@ -45,7 +57,9 @@ namespace Order.Domain.Model
             }
         }
 
-        
+        /// <summary>
+        /// Adresa kupca
+        /// </summary>
         public string Adress 
         {
             get
@@ -60,7 +74,9 @@ namespace Order.Domain.Model
             }
         }
 
-        
+        /// <summary>
+        /// Telefon kupca
+        /// </summary>
         public string PhoneNumber
         {
             get
@@ -75,7 +91,9 @@ namespace Order.Domain.Model
             }
         }
 
-        
+        /// <summary>
+        /// Email kupca
+        /// </summary>
         public string Email
         {
             get

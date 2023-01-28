@@ -8,12 +8,19 @@ using System.Threading.Tasks;
 
 namespace Order.Domain.Services
 {
-    
+    /// <summary>
+    /// Klasa koja predstavlja servis za pozivanje metoda nad repozitorijumom osobe kako bi se pristupilo bazi
+    /// </summary>
     public class PersonService : IPersonService
     {
-        
+        // <summary>
+        /// Properti interfejsa repozitorijuma osobe koji se inject-uje u konstruktoru servisa
+        /// </summary>
         private readonly IPersonRepository _personRepository;
-       
+        /// <summary>
+        /// Konstruktor sa parametrom repozitorijuma osobe koji inicijalizuje ovaj repozitorijum
+        /// </summary>
+        /// <param name="personRepository"></param>
         public PersonService(IPersonRepository personRepository)
         {
             _personRepository = personRepository;

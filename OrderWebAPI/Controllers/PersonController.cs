@@ -6,20 +6,31 @@ using OrderWebAPIFaza4.Request;
 
 namespace OrderWebAPIFaza4.Controllers
 {
-    
+    /// <summary>
+    /// Kontroler koji služi za pozivanje operacija nad objektom "Person"
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class PersonController : ControllerBase
     {
-        
+        /// <summary>
+        /// Properti interfejsa servisa osobe koji se inject-uje u konstruktoru servisa
+        /// </summary>
         private readonly IPersonService _personService;
-        
+        /// <summary>
+        /// Konstruktor sa parametrom servisa kompanije koji inicijalizuje ovaj servis
+        /// </summary>
+        /// <param name="personService"></param>
         public PersonController(IPersonService personService)
         {
             _personService = personService;
         }
 
-       
+        /// <summary>
+        /// Metoda koja služi za ažuriranje osobe u bazi
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="requestPerson"></param>
         [HttpPut("{id}")]
         public async Task Put(int id, CreatePersonRequest requestPerson)
         {
@@ -39,14 +50,19 @@ namespace OrderWebAPIFaza4.Controllers
 
         }
 
-        
+        /// <summary>
+        /// Metoda koja služi za vraćanje liste svih osoba iz baze
+        /// </summary>
         [HttpGet("getAll")]
         public async Task<ActionResult<List<Person>>> GetAll()
         {
             return await _personService.GetAll();
         }
 
-        
+        /// <summary>
+        /// Metoda koja služi za vraćanje konkretne osobe iz baze na osnovu njenog id-ja
+        /// </summary>
+        /// <param name="id"></param>
         [HttpGet("{id}")]
         public async Task<ActionResult<Person>> GetById(int id)
         {
@@ -62,14 +78,20 @@ namespace OrderWebAPIFaza4.Controllers
             
         }
 
-        
+        /// <summary>
+        /// Metoda koja služi za brisanje konkretne osobe iz baze na osnovu njenog id-ja
+        /// </summary>
+        /// <param name="id"></param>
         [HttpDelete("{id}")]
         public async Task Delete(int id)
         {
             await _personService.Delete(id);
         }
 
-        
+        /// <summary>
+        /// Metoda koja služi za dodavanje nove osobe u bazu
+        /// </summary>
+        /// <param name="requestPerson"></param>
         [HttpPost]
         public async Task Post(CreatePersonRequest requestPerson)
         {

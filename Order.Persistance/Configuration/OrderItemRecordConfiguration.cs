@@ -8,10 +8,15 @@ using System.Threading.Tasks;
 
 namespace Order.Persistance.Configuration
 {
-    
+    /// <summary>
+    /// Klasa koja predstavlja konfiguraciju tabele "OrderItems" u bazi
+    /// </summary>
     public class OrderRecordConfiguration : IEntityTypeConfiguration<OrderItemRecord>
     {
-        
+        /// <summary>
+        /// Metoda koja konfiguriše tabelu "OrderItems" u bazi
+        /// </summary>
+        /// <param name="builder"></param>
         public void Configure(EntityTypeBuilder<OrderItemRecord> builder)
         {
             builder.ToTable("OrderItems");

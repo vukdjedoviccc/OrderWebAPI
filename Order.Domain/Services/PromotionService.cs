@@ -8,12 +8,19 @@ using System.Threading.Tasks;
 
 namespace Order.Domain.Services
 {
-    
+    /// <summary>
+    /// Klasa koja predstavlja servis za pozivanje metoda nad repozitorijumom promocije kako bi se pristupilo bazi
+    /// </summary>
     public class PromotionService : IPromotionService
     {
-        
+        // <summary>
+        /// Properti repozitorijuma promocije koji se inject-uje u konstruktoru servisa
+        /// </summary>
         private readonly IPromotionRepository _promotionRepository;
-        
+        /// <summary>
+        /// Konstruktor sa parametrom repozitorijuma promocije koji inicijalizuje ovaj repozitorijum
+        /// </summary>
+        /// <param name="promotionRepository"></param>
         public PromotionService(IPromotionRepository promotionRepository)
         {
             _promotionRepository = promotionRepository;

@@ -11,20 +11,33 @@ using System.Threading.Tasks;
 
 namespace Order.Domain.Controllers
 {
-    
+    /// <summary>
+    /// Kontroler koji služi za pozivanje operacija nad objektom "Company"
+    /// </summary>
     [Route("api/[controller]")]
         [ApiController]
         public class CompanyController : ControllerBase
         {
-        
+        /// <summary>
+        /// Properti interfejsa servisa kompanije koji se inject-uje u konstruktoru servisa
+        /// </summary>
         private readonly ICompanyService _companyService;
 
+        /// <summary>
+        /// Konstruktor sa parametrom servisa kompanije koji inicijalizuje ovaj servis
+        /// </summary>
+        /// <param name="companyService"></param>
+        
         public CompanyController(ICompanyService companyService)
         {
             _companyService = companyService;
         }
 
-        
+        /// <summary>
+        /// Metoda koja služi za ažuriranje kompanije u bazi
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="requestCompany"></param>
         [HttpPut("{id}")]
         public async Task Put(int id, CreateCompanyRequest requestCompany)
         {
@@ -45,14 +58,19 @@ namespace Order.Domain.Controllers
 
         }
 
-       
+        /// <summary>
+        /// Metoda koja služi za vraćanje liste svih kompanija iz baze
+        /// </summary>
         [HttpGet("getAll")]
         public async Task<ActionResult<List<Company>>> GetAll()
         {
             return await _companyService.GetAll();
         }
 
-       
+        /// <summary>
+        /// Metoda koja služi za vraćanje konkretne kompanije iz baze na osnovu njenog id-ja
+        /// </summary>
+        /// <param name="id"></param>
         [HttpGet("{id}")]
         public async Task<ActionResult<Company>> GetById(int id)
         {
@@ -67,14 +85,20 @@ namespace Order.Domain.Controllers
             }
         }
 
-        
+        /// <summary>
+        /// Metoda koja služi za brisanje konkretne kompanije iz baze na osnovu njenog id-ja
+        /// </summary>
+        /// <param name="id"></param>
         [HttpDelete("{id}")]
         public async Task Delete(int id)
         {
             await _companyService.Delete(id);
         }
 
-       
+        /// <summary>
+        /// Metoda koja služi za dodavanje nove kompanije u bazu
+        /// </summary>
+        /// <param name="requestCompany"></param>
         [HttpPost]
         public async Task Post(CreateCompanyRequest requestCompany)
         {
