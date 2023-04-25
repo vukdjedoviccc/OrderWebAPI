@@ -1,17 +1,14 @@
-﻿namespace Order.Domain.Request
+﻿namespace OrderWebAPI.Request;
+
+public class CreateProductRequest
 {
-    
-    public class CreateProductRequest
-    {
+    /// <summary>
+    ///     Ime proizvoda
+    /// </summary>
+    public string Name { get; set; }
 
-        /// <summary>
-        /// Ime proizvoda
-        /// </summary>
-        public string Name { get; set; }
-
-        /// <summary>
-        /// Cena proizvoda
-        /// </summary>
-        public decimal Price { get; set; }
-    }
+    /// <summary>
+    ///     Cena proizvoda
+    /// </summary>
+    public decimal Price { get; set; }
 }

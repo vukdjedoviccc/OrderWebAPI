@@ -1,147 +1,125 @@
 ﻿using Order.Domain.DomainValidations;
 
-namespace Order.Domain.Model
+namespace Order.Domain.Model;
+
+/// <summary>
+///     Klasa domena koja se odnosi na promocije
+/// </summary>
+public class Promotion
 {
+    private decimal _discount;
+    private DateTime _fromDate;
+    private int _id;
+    private string _name;
+    private List<Product> _products;
+    private DateTime _toDate;
+
     /// <summary>
-    /// Klasa domena koja se odnosi na promocije
+    ///     Bezparametarski konstruktor klase Promotion
     /// </summary>
-    public class Promotion
+    public Promotion()
     {
-        private int _id;
-        private string _name;
-        private decimal _discount;
-        private DateTime _fromDate;
-        private DateTime _toDate;
-        private List<Product> _products;
+    }
 
-        /// <summary>
-        /// Bezparametarski konstruktor klase Promotion 
-        /// </summary>
-        public Promotion()
+    /// <summary>
+    ///     Parametarski konstruktor klase Promotion
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="name"></param>
+    /// <param name="discount"></param>
+    public Promotion(int id, string name, decimal discount)
+    {
+        Id = id;
+        Name = name;
+        Discount = discount;
+    }
+
+    /// <summary>
+    ///     Parametarski konstruktor klase Customer
+    /// </summary>
+    /// <param name="fullName"></param>
+    /// <param name="registrationNumber"></param>
+    /// <param name="adress"></param>
+    /// <param name="phoneNumber"></param>
+    /// <param name="email"></param>
+    /// <param name="id"></param>
+    /// <summary>
+    ///     Id promocije
+    /// </summary>
+    public int Id
+    {
+        get => _id;
+        set
         {
-
+            Validations.NotNull(value);
+            Validations.NumberNotNegativeOrEqualTo0(value);
+            _id = value;
         }
+    }
 
-        /// <summary>
-        /// Parametarski konstruktor klase Customer 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="name"></param>
-        /// <param name="discount"></param>
-        public Promotion(int id, string name, decimal discount)
+    /// <summary>
+    ///     Naziv promocije
+    /// </summary>
+    public string Name
+    {
+        get => _name;
+        set
         {
-            Id = id;
-            Name = name;
-            Discount = discount;
+            Validations.NotNullOrEmpty(value);
+            Validations.StringLengthLessThanOrEqualTo(value, 30);
+            _name = value;
         }
+    }
 
-        /// <summary>
-        /// Parametarski konstruktor klase Customer 
-        /// </summary>
-        /// <param name="fullName"></param>
-        /// <param name="registrationNumber"></param>
-        /// <param name="adress"></param>
-        /// <param name="phoneNumber"></param>
-        /// <param name="email"></param>
-        /// <param name="id"></param>
-        /// 
-
-        /// <summary>
-        /// Id promocije
-        /// </summary>
-        public int Id 
+    /// <summary>
+    ///     Popust promocije
+    /// </summary>
+    public decimal Discount
+    {
+        get => _discount;
+        set
         {
-            get
-            {
-                return _id;
-            }
-            set
-            {
-                Validations.NotNull(value);
-                Validations.NumberNotNegativeOrEqualTo0(value);
-                _id = value;
-            }
+            Validations.NumberNotNegativeOrEqualTo0(value);
+            _discount = value;
         }
+    }
 
-        /// <summary>
-        /// Naziv promocije
-        /// </summary>
-        public string Name 
+    /// <summary>
+    ///     Datum početka promocije
+    /// </summary>
+    public DateTime FromDate
+    {
+        get => _fromDate;
+        set
         {
-            get
-            {
-                return _name;
-            }
-            set
-            {
-                Validations.NotNullOrEmpty(value);
-                Validations.StringLengthLessThanOrEqualTo(value, 30);
-                _name = value;
-            }
+            Validations.NotNull(value);
+            _fromDate = value;
         }
+    }
 
-        /// <summary>
-        /// Popust promocije
-        /// </summary>
-        public decimal Discount
+    /// <summary>
+    ///     Datum završetka promocije
+    /// </summary>
+    public DateTime ToDate
+    {
+        get => _toDate;
+        set
         {
-            get
-            {
-                return _discount;
-            }
-            set
-            {
-                Validations.NumberNotNegativeOrEqualTo0(value);
-                _discount = value;
-            }
+            Validations.NotNull(value);
+            _toDate = value;
         }
+    }
 
-        /// <summary>
-        /// Datum početka promocije
-        /// </summary>
-        public DateTime FromDate
+    /// <summary>
+    ///     Lista proizvoda
+    /// </summary>
+    public List<Product> Products
+    {
+        get => _products;
+        set
         {
-            get
-            {
-                return _fromDate;
-            }
-            set
-            {
-                Validations.NotNull(value);
-                _fromDate = value;
-            }
-        }
-
-        /// <summary>
-        /// Datum završetka promocije
-        /// </summary>
-        public DateTime ToDate
-        {
-            get
-            {
-                return _toDate;
-            }
-            set
-            {
-                Validations.NotNull(value);
-                _toDate = value;
-            }
-        }
-
-        /// <summary>
-        /// Lista proizvoda
-        /// </summary>
-        public List<Product> Products
-        {
-            get
-            {
-                return _products;
-            }
-            set
-            {
-                Validations.NotNull(value);
-                _products = value;
-            }
+            Validations.NotNull(value);
+            _products = value;
         }
     }
 }

@@ -3,80 +3,78 @@ using Order.Domain.Interfaces;
 using Order.Domain.Model;
 using Order.Persistance;
 using Order.Persistance.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Order.Repositories
+namespace Order.Repositories;
+
+/// <summary>
+///     Klasa koja predstavlja repozitorijum skladišta za pozivanje metoda koje rade direktno nad bazom
+/// </summary>
+public class StockRepository : IStockRepository
 {
-    /// <summary>
-    /// Klasa koja predstavlja repozitorijum skladišta za pozivanje metoda koje rade direktno nad bazom
+    // <summary>
+    /// Properti datacontext-a zaduženog za rad sa bazom
     /// </summary>
-    public class StockRepository : IStockRepository
+    private readonly DatabaseContext _databaseContext;
+
+    /// <summary>
+    ///     Konstruktor sa parametrom datacontext-a(omogućava direktan pristup tabelama u bazi) koji ga inicijalizuje
+    /// </summary>
+    /// <param name="databaseContext"></param>
+    public StockRepository(DatabaseContext databaseContext)
     {
-        // <summary>
-        /// Properti datacontext-a zaduženog za rad sa bazom
-        /// </summary>
-        private readonly DataContext _dataContext;
-        /// <summary>
-        /// Konstruktor sa parametrom datacontext-a(omogućava direktan pristup tabelama u bazi) koji ga inicijalizuje 
-        /// </summary>
-        /// <param name="dataContext"></param>
-        public StockRepository(DataContext dataContext)
-        {
-            _dataContext = dataContext;
-        }
+        _databaseContext = databaseContext;
+    }
 
-        public async Task SaveChanges()
-        {
-            await _dataContext.SaveChangesAsync();
-        }
+    public async Task SaveChanges()
+    {
+        await _databaseContext.SaveChangesAsync();
+    }
 
-        public async Task<Stock> GetById(int id)
+    public async Task<Stock> GetById(int id)
+    {
+        var record = await _databaseContext.Stocks.Where(s => s.ProductId == id).AsNoTracking().FirstOrDefaultAsync();
+        if (record is null) return null;
+        var stock = new Stock
         {
-            var record = await _dataContext.Stocks.Where(p => p.ProductId == id).AsNoTracking().FirstOrDefaultAsync();
-            Stock stock = new Stock
-            {
-                Quantity = record.Quantity,
-                Id = record.Id
-            };
-            return stock;
-        }
+            Quantity = record.Quantity,
+            ProductId = record.ProductId,
+            Id = record.Id
+        };
+        return stock;
+    }
 
-        public async Task Update(Stock stock)
+    public async Task Update(int id, int productId, int quantity)
+    {
+        var record = new StockRecord
         {
-            var record = new StockRecord
-            {
-               Id = stock.Id,
-               ProductId = stock.ProductId,
-               Quantity = stock.Quantity,
-            };
-            _dataContext.Stocks.Update(record);
-        }
+            Id = id,
+            ProductId = productId,
+            Quantity = quantity
+        };
+        _databaseContext.Stocks.Update(record);
+    }
 
-        public async Task Add(Stock stock)
+    public async Task Add(int productId, int quantity)
+    {
+        var record = new StockRecord
         {
-            var record = new StockRecord
-            {
-               ProductId = stock.Id,
-               Quantity = stock.Quantity,
-            };
+            ProductId = productId,
+            Quantity = quantity
+        };
 
-            await _dataContext.Stocks.AddAsync(record);
-        }
+        await _databaseContext.Stocks.AddAsync(record);
+    }
 
-        public async Task<List<Stock>> GetAll()
+    public async Task<List<Stock>> GetAll()
+    {
+        var records = await _databaseContext.Stocks.AsNoTracking().ToListAsync();
+        if (records.Count == 0) return null;
+        var stocks = records.Select(x => new Stock
         {
-            var records = await _dataContext.Stocks.AsNoTracking().ToListAsync();
-            List<Stock> stocks = records.Select(x => new Stock
-            {
-                Id = x.Id,
-                ProductId= x.ProductId,
-                Quantity = x.Quantity,
-            }).ToList();
-            return stocks;
-        }
+            Id = x.Id,
+            ProductId = x.ProductId,
+            Quantity = x.Quantity
+        }).ToList();
+        return stocks;
     }
 }

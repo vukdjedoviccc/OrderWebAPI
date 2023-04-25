@@ -3,99 +3,94 @@ using Order.Domain.Interfaces;
 using Order.Domain.Model;
 using Order.Persistance;
 using Order.Persistance.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Order.Repositories
+namespace Order.Repositories;
+
+public class CompanyRepository : ICompanyRepository
 {
-    public class CompanyRepository : ICompanyRepository
+    // <summary>
+    /// Properti datacontext-a zaduženog za rad sa bazom
+    /// </summary>
+    private readonly DatabaseContext _databaseContext;
+
+    /// <summary>
+    ///     Konstruktor sa parametrom datacontext-a(omogućava direktan pristup tabelama u bazi) koji ga inicijalizuje
+    /// </summary>
+    /// <param name="databaseContext"></param>
+    public CompanyRepository(DatabaseContext databaseContext)
     {
-        // <summary>
-        /// Properti datacontext-a zaduženog za rad sa bazom
-        /// </summary>
-        private readonly DataContext _dataContext;
+        _databaseContext = databaseContext;
+    }
 
-        /// <summary>
-        /// Konstruktor sa parametrom datacontext-a(omogućava direktan pristup tabelama u bazi) koji ga inicijalizuje 
-        /// </summary>
-        /// <param name="dataContext"></param>
-        public CompanyRepository(DataContext dataContext)
+    public async Task SaveChanges()
+    {
+        await _databaseContext.SaveChangesAsync();
+    }
+
+    public async Task Add(string fullName, string registrationNumber, string adress, string phoneNumber, string email)
+    {
+        var record = new CompanyRecord
         {
-            _dataContext = dataContext;
-        }
+            Adress = adress,
+            Email = email,
+            FullName = fullName,
+            PhoneNumber = phoneNumber,
+            RegistrationNumber = registrationNumber
+        };
+        await _databaseContext.Companies.AddAsync(record);
+    }
 
-        public async Task SaveChanges()
+    public async Task Delete(int? id)
+    {
+        var record = await _databaseContext.Companies.Where(r => r.Id == id).FirstOrDefaultAsync();
+        if (record != null)
+            _databaseContext.Companies.Remove(record);
+    }
+
+    public async Task<List<Company>> GetAll()
+    {
+        var records = await _databaseContext.Companies.AsNoTracking().ToListAsync();
+        if (records.Count == 0) return null;
+        var companies = records.Select(x => new Company
         {
-            await _dataContext.SaveChangesAsync();
-        }
+            Id = x.Id,
+            PhoneNumber = x.PhoneNumber,
+            Email = x.Email,
+            Adress = x.Adress,
+            FullName = x.FullName,
+            RegistrationNumber = x.RegistrationNumber
+        }).ToList();
+        return companies;
+    }
 
-        public async Task Add(Company company)
+    public async Task<Company> GetById(int? id)
+    {
+        var record = await _databaseContext.Companies.Where(p => p.Id == id).AsNoTracking().FirstOrDefaultAsync();
+        if (record is null) return null;
+        var company = new Company
         {
-            var record = new CompanyRecord 
-            {
-                Adress = company.Adress,
-                Email = company.Email,
-                FullName = company.FullName,
-                PhoneNumber = company.PhoneNumber,
-                RegistrationNumber = company.RegistrationNumber,
-            };
-            await _dataContext.Companies.AddAsync(record);
-        }
+            Id = record.Id,
+            Adress = record.Adress,
+            Email = record.Email,
+            PhoneNumber = record.PhoneNumber,
+            RegistrationNumber = record.RegistrationNumber,
+            FullName = record.FullName
+        };
+        return company;
+    }
 
-        public async Task Delete(int id)
+    public async Task Update(int? id, string address, string fullName, string email, string phoneNumber,
+        string registrationNumber)
+    {
+        var record = new CompanyRecord
         {
-            var record = await _dataContext.Companies.Where(r => r.Id == id).FirstOrDefaultAsync();
-            if (record != null)
-                _dataContext.Companies.Remove(record);
-        }
-
-        public async Task<List<Company>> GetAll()
-        {
-            var records = await _dataContext.Companies.AsNoTracking().ToListAsync();
-
-            List<Company> companies = records.Select(x => new Company
-            {
-                Id = x.Id,
-                PhoneNumber = x.PhoneNumber,
-                Email = x.Email,
-                Adress = x.Adress,
-                FullName = x.FullName,  
-                RegistrationNumber = x.RegistrationNumber,
-            }).ToList();
-            return companies;
-        }
-
-        public async Task<Company> GetById(int id)
-        {
-            var record = await _dataContext.Companies.Where(p => p.Id == id).AsNoTracking().FirstOrDefaultAsync();
-
-            Company company = new Company
-            {
-                Id = record.Id,
-                Adress = record.Adress,
-                Email = record.Email,
-                PhoneNumber = record.PhoneNumber,
-                RegistrationNumber = record.RegistrationNumber,
-                FullName = record.FullName,
-            };
-            return company;
-        }
-
-        public async Task Update(Company company)
-        {
-            var record = new CompanyRecord
-            {
-                Id = company.Id,
-                Adress = company.Adress,
-                Email = company.Email,
-                PhoneNumber = company.PhoneNumber,
-                FullName = company.FullName,
-                RegistrationNumber = company.RegistrationNumber,
-            };
-            _dataContext.Companies.Update(record);
-        }
+            Id = id,
+            Adress = address,
+            Email = email,
+            PhoneNumber = phoneNumber,
+            FullName = fullName,
+            RegistrationNumber = registrationNumber
+        };
+        _databaseContext.Companies.Update(record);
     }
 }

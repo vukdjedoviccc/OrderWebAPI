@@ -11,7 +11,7 @@ using Order.Persistance;
 
 namespace OrderWebAPI.Migrations
 {
-    [DbContext(typeof(DataContext))]
+    [DbContext(typeof(DatabaseContext))]
     [Migration("20230127233152_KreiranaBaza")]
     partial class KreiranaBaza
     {

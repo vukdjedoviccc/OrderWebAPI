@@ -1,16 +1,14 @@
-﻿namespace Order.Domain.Request
-{
-    
-    public class CreateOrderItemRequest
-    {
-        /// <summary>
-        /// Količina stavke narudžbine
-        /// </summary>
-        public int Quantity { get; set; }
+﻿namespace OrderWebAPI.Request;
 
-        /// <summary>
-        /// Id proizvoda na koji se stavka narudžbine odnosi
-        /// </summary>
-        public int ProductId { get; set; }
-    }
+public class CreateOrderItemRequest
+{
+    /// <summary>
+    ///     Količina stavke narudžbine
+    /// </summary>
+    public int Quantity { get; set; }
+
+    /// <summary>
+    ///     Id proizvoda na koji se stavka narudžbine odnosi
+    /// </summary>
+    public int ProductId { get; set; }
 }
