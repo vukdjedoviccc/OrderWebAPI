@@ -19,7 +19,7 @@ public class Stock
     }
 
     /// <summary>
-    ///     Parametarski konstruktor klase Customer
+    ///     Parametarski konstruktor klase Stock
     /// </summary>
     /// <param name="id"></param>
     /// <param name="productId"></param>

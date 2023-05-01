@@ -37,10 +37,10 @@ public class PutTests
 
         // Assert
         _companyServiceMock.Verify(
-            p => p.Update(companyId, companyForUpdate.Adress, companyForUpdate.FullName,
+            p => p.Update(companyId, companyForUpdate.Address, companyForUpdate.FullName,
                 companyForUpdate.Email, companyForUpdate.PhoneNumber, companyForUpdate.RegistrationNumber),
             Times.Once);
-        Assert.Equal(companyForUpdate.Adress, existingCompany.Adress);
+        Assert.Equal(companyForUpdate.Address, existingCompany.Address);
         Assert.Equal(companyForUpdate.FullName, existingCompany.FullName);
         Assert.Equal(companyForUpdate.Email, existingCompany.Email);
         Assert.Equal(companyForUpdate.PhoneNumber, existingCompany.PhoneNumber);
@@ -61,7 +61,7 @@ public class PutTests
             () => _companyController.Put(companyId, companyForUpdate));
         Assert.Contains("Id ne može biti negativan broj ili jednak nuli!", ex.Message);
         _companyServiceMock.Verify(
-            p => p.Update(companyId, companyForUpdate.Adress, companyForUpdate.FullName,
+            p => p.Update(companyId, companyForUpdate.Address, companyForUpdate.FullName,
                 companyForUpdate.Email, companyForUpdate.PhoneNumber, companyForUpdate.RegistrationNumber),
             Times.Never);
     }
@@ -81,7 +81,7 @@ public class PutTests
             () => _companyController.Put(companyId, companyForUpdate));
         Assert.Contains("Address ne može biti null ili prazan string!", ex.Message);
         _companyServiceMock.Verify(
-            p => p.Update(companyId, companyForUpdate.Adress, companyForUpdate.FullName,
+            p => p.Update(companyId, companyForUpdate.Address, companyForUpdate.FullName,
                 companyForUpdate.Email, companyForUpdate.PhoneNumber, companyForUpdate.RegistrationNumber),
             Times.Never);
     }
@@ -101,7 +101,7 @@ public class PutTests
             () => _companyController.Put(companyId, companyForUpdate));
         Assert.Contains("FullName ne može biti null ili prazan string!", ex.Message);
         _companyServiceMock.Verify(
-            p => p.Update(companyId, companyForUpdate.Adress, companyForUpdate.FullName,
+            p => p.Update(companyId, companyForUpdate.Address, companyForUpdate.FullName,
                 companyForUpdate.Email, companyForUpdate.PhoneNumber, companyForUpdate.RegistrationNumber),
             Times.Never);
     }
@@ -122,7 +122,7 @@ public class PutTests
             () => _companyController.Put(companyId, companyForUpdate));
         Assert.Contains("PhoneNumber ne može biti null ili prazan string!", ex.Message);
         _companyServiceMock.Verify(
-            p => p.Update(companyId, companyForUpdate.Adress, companyForUpdate.FullName,
+            p => p.Update(companyId, companyForUpdate.Address, companyForUpdate.FullName,
                 companyForUpdate.Email, companyForUpdate.PhoneNumber, companyForUpdate.RegistrationNumber),
             Times.Never);
     }
@@ -142,7 +142,7 @@ public class PutTests
             () => _companyController.Put(companyId, companyForUpdate));
         Assert.Contains("Email ne može biti null ili prazan string!", ex.Message);
         _companyServiceMock.Verify(
-            p => p.Update(companyId, companyForUpdate.Adress, companyForUpdate.FullName,
+            p => p.Update(companyId, companyForUpdate.Address, companyForUpdate.FullName,
                 companyForUpdate.Email, companyForUpdate.PhoneNumber, companyForUpdate.RegistrationNumber),
             Times.Never);
     }
@@ -163,7 +163,7 @@ public class PutTests
             () => _companyController.Put(companyId, companyForUpdate));
         Assert.Contains("RegistrationNumber ne može biti null ili prazan string!", ex.Message);
         _companyServiceMock.Verify(
-            p => p.Update(companyId, companyForUpdate.Adress, companyForUpdate.FullName,
+            p => p.Update(companyId, companyForUpdate.Address, companyForUpdate.FullName,
                 companyForUpdate.Email, companyForUpdate.PhoneNumber, companyForUpdate.RegistrationNumber),
             Times.Never);
     }

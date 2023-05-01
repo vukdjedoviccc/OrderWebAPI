@@ -11,8 +11,8 @@ namespace Order.Repositories;
 /// </summary>
 public class StockRepository : IStockRepository
 {
-    // <summary>
-    /// Properti datacontext-a zaduženog za rad sa bazom
+    /// <summary>
+    ///     Properti datacontext-a zaduženog za rad sa bazom
     /// </summary>
     private readonly DatabaseContext _databaseContext;
 

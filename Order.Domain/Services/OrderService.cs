@@ -64,12 +64,14 @@ public class OrderService : IOrderService
     /// <summary>
     ///     Metoda koja postavlja vrednosti narudžbine
     /// </summary>
-    /// <param name="order"></param>
+    /// <param name="customerId"></param>
+    /// <param name="date"></param>
+    /// <param name="items"></param>
     private async Task<Model.Order> SetOrder(int? customerId, DateTime? date, List<OrderItem>? items)
     {
-        var productsFromDB = await _productRepository.ReturnProductsFromDB(items);
+        var productsFromDb = await _productRepository.ReturnProductsFromDb(items);
         foreach (var item in items)
-            item.Product = productsFromDB.FirstOrDefault(p => p.Id == item.ProductId);
+            item.Product = productsFromDb.FirstOrDefault(p => p.Id == item.ProductId)!;
         var order = new Model.Order();
         order.CustomerId = customerId;
         order.Date = date;

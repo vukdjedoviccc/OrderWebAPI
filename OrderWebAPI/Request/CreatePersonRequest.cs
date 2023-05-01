@@ -2,18 +2,23 @@
 
 public class CreatePersonRequest
 {
-    public CreatePersonRequest(string firstName, string lastName, string adress, string phoneNumber, string email)
+    /// <summary>
+    ///     Parametarski konstruktor klase CreatePersonRequest
+    /// </summary>
+    /// <param name="firstName"></param>
+    /// <param name="lastName"></param>
+    /// <param name="address"></param>
+    /// <param name="phoneNumber"></param>
+    /// <param name="email"></param>
+    public CreatePersonRequest(string firstName, string lastName, string address, string phoneNumber, string email)
     {
         FirstName = firstName;
         LastName = lastName;
-        Adress = adress;
+        Address = address;
         PhoneNumber = phoneNumber;
         Email = email;
     }
 
-    public CreatePersonRequest()
-    {
-    }
 
     /// <summary>
     ///     Ime osobe
@@ -28,7 +33,7 @@ public class CreatePersonRequest
     /// <summary>
     ///     Adresa kupca
     /// </summary>
-    public string Adress { get; set; }
+    public string Address { get; set; }
 
     /// <summary>
     ///     Telefon kupca

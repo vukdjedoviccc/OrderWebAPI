@@ -38,9 +38,9 @@ public class PutTests
         // Assert
         _personServiceMock.Verify(
             p => p.Update(personId, personForUpdate.FirstName, personForUpdate.LastName,
-                personForUpdate.Email, personForUpdate.Adress, personForUpdate.PhoneNumber),
+                personForUpdate.Email, personForUpdate.Address, personForUpdate.PhoneNumber),
             Times.Once);
-        Assert.Equal(personForUpdate.Adress, existingPerson.Adress);
+        Assert.Equal(personForUpdate.Address, existingPerson.Address);
         Assert.Equal(personForUpdate.FirstName, existingPerson.FirstName);
         Assert.Equal(personForUpdate.Email, existingPerson.Email);
         Assert.Equal(personForUpdate.LastName, existingPerson.LastName);
@@ -61,7 +61,7 @@ public class PutTests
         Assert.Contains("Id ne može biti negativan broj ili jednak nuli!", ex.Message);
         _personServiceMock.Verify(
             p => p.Update(personId, personForUpdate.FirstName, personForUpdate.LastName,
-                personForUpdate.Email, personForUpdate.Adress, personForUpdate.PhoneNumber),
+                personForUpdate.Email, personForUpdate.Address, personForUpdate.PhoneNumber),
             Times.Never);
     }
 
@@ -81,7 +81,7 @@ public class PutTests
         Assert.Contains("FirstName ne može biti null ili prazan string!", ex.Message);
         _personServiceMock.Verify(
             p => p.Update(personId, personForUpdate.FirstName, personForUpdate.LastName,
-                personForUpdate.Email, personForUpdate.Adress, personForUpdate.PhoneNumber),
+                personForUpdate.Email, personForUpdate.Address, personForUpdate.PhoneNumber),
             Times.Never);
     }
 
@@ -101,7 +101,7 @@ public class PutTests
         Assert.Contains("LastName ne može biti null ili prazan string!", ex.Message);
         _personServiceMock.Verify(
             p => p.Update(personId, personForUpdate.FirstName, personForUpdate.LastName,
-                personForUpdate.Email, personForUpdate.Adress, personForUpdate.PhoneNumber),
+                personForUpdate.Email, personForUpdate.Address, personForUpdate.PhoneNumber),
             Times.Never);
     }
 
@@ -121,7 +121,7 @@ public class PutTests
         Assert.Contains("Address ne može biti null ili prazan string!", ex.Message);
         _personServiceMock.Verify(
             p => p.Update(personId, personForUpdate.FirstName, personForUpdate.LastName,
-                personForUpdate.Email, personForUpdate.Adress, personForUpdate.PhoneNumber),
+                personForUpdate.Email, personForUpdate.Address, personForUpdate.PhoneNumber),
             Times.Never);
     }
 
@@ -141,7 +141,7 @@ public class PutTests
         Assert.Contains("PhoneNumber ne može biti null ili prazan string!", ex.Message);
         _personServiceMock.Verify(
             p => p.Update(personId, personForUpdate.FirstName, personForUpdate.LastName,
-                personForUpdate.Email, personForUpdate.Adress, personForUpdate.PhoneNumber),
+                personForUpdate.Email, personForUpdate.Address, personForUpdate.PhoneNumber),
             Times.Never);
     }
 
@@ -161,7 +161,7 @@ public class PutTests
         Assert.Contains("Email ne može biti null ili prazan string!", ex.Message);
         _personServiceMock.Verify(
             p => p.Update(personId, personForUpdate.FirstName, personForUpdate.LastName,
-                personForUpdate.Email, personForUpdate.Adress, personForUpdate.PhoneNumber),
+                personForUpdate.Email, personForUpdate.Address, personForUpdate.PhoneNumber),
             Times.Never);
     }
 

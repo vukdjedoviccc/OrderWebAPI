@@ -100,7 +100,7 @@ public class Order
     /// </summary>
     public void CalculateTotalAmount()
     {
-        foreach (var item in OrderItems)
+        foreach (var item in OrderItems!)
         {
             var itemAmount = 0M;
 

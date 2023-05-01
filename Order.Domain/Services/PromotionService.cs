@@ -8,8 +8,8 @@ namespace Order.Domain.Services;
 /// </summary>
 public class PromotionService : IPromotionService
 {
-    // <summary>
-    /// Properti repozitorijuma promocije koji se inject-uje u konstruktoru servisa
+    /// <summary>
+    ///     Properti repozitorijuma promocije koji se inject-uje u konstruktoru servisa
     /// </summary>
     private readonly IPromotionRepository _promotionRepository;
 

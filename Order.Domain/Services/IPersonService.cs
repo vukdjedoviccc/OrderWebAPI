@@ -13,14 +13,14 @@ public interface IPersonService
     /// <param name="firstName"></param>
     /// <param name="lastName"></param>
     /// <param name="email"></param>
-    /// <param name="adress"></param>
+    /// <param name="address"></param>
     /// <param name="phoneNumber"></param>
-    Task Add(string firstName, string lastName, string email, string adress, string phoneNumber);
+    Task Add(string firstName, string lastName, string email, string address, string phoneNumber);
 
     /// <summary>
     ///     Metoda koja pomoću repozitorijuma pristupa bazi kako bi iz nje vratila konkretnu osobu na osnovu njenog id-ja
     /// </summary>
-    /// <param name="id"></param
+    /// <param name="id"></param>
     Task<Person> GetById(int? id);
 
     /// <summary>

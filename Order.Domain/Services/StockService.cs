@@ -8,8 +8,8 @@ namespace Order.Domain.Services;
 /// </summary>
 public class StockService : IStockService
 {
-    // <summary>
-    /// Properti repozitorijuma skladišta koji se inject-uje u konstruktoru servisa
+    /// <summary>
+    ///     Properti repozitorijuma skladišta koji se inject-uje u konstruktoru servisa
     /// </summary>
     private readonly IStockRepository _stockRepository;
 

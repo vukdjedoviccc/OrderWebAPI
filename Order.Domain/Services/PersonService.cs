@@ -8,8 +8,8 @@ namespace Order.Domain.Services;
 /// </summary>
 public class PersonService : IPersonService
 {
-    // <summary>
-    /// Properti interfejsa repozitorijuma osobe koji se inject-uje u konstruktoru servisa
+    /// <summary>
+    ///     Properti interfejsa repozitorijuma osobe koji se inject-uje u konstruktoru servisa
     /// </summary>
     private readonly IPersonRepository _personRepository;
 
@@ -22,9 +22,9 @@ public class PersonService : IPersonService
         _personRepository = personRepository;
     }
 
-    public async Task Add(string firstName, string lastName, string email, string adress, string phoneNumber)
+    public async Task Add(string firstName, string lastName, string email, string address, string phoneNumber)
     {
-        await _personRepository.Add(firstName, lastName, email, adress, phoneNumber);
+        await _personRepository.Add(firstName, lastName, email, address, phoneNumber);
         await _personRepository.SaveChanges();
     }
 

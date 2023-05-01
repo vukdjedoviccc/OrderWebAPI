@@ -31,7 +31,7 @@ public class PostTests
 
         // Assert
         _personServiceMock.Verify(p => p.Add(personRequest.FirstName, personRequest.LastName, personRequest.Email,
-            personRequest.Adress,
+            personRequest.Address,
             personRequest.PhoneNumber), Times.Once);
     }
 
@@ -50,7 +50,7 @@ public class PostTests
         Assert.Contains("FirstName ne može biti null ili prazan string!", ex.Message);
         _personServiceMock.Verify(
             p => p.Add(personRequest.FirstName, personRequest.LastName, personRequest.Email,
-                personRequest.Adress, personRequest.PhoneNumber),
+                personRequest.Address, personRequest.PhoneNumber),
             Times.Never);
     }
 
@@ -69,7 +69,7 @@ public class PostTests
         Assert.Contains("LastName ne može biti null ili prazan string!", ex.Message);
         _personServiceMock.Verify(
             p => p.Add(personRequest.FirstName, personRequest.LastName, personRequest.Email,
-                personRequest.Adress, personRequest.PhoneNumber),
+                personRequest.Address, personRequest.PhoneNumber),
             Times.Never);
     }
 
@@ -88,7 +88,7 @@ public class PostTests
         Assert.Contains("PhoneNumber ne može biti null ili prazan string!", ex.Message);
         _personServiceMock.Verify(
             p => p.Add(personRequest.FirstName, personRequest.LastName, personRequest.Email,
-                personRequest.Adress, personRequest.PhoneNumber),
+                personRequest.Address, personRequest.PhoneNumber),
             Times.Never);
     }
 
@@ -107,7 +107,7 @@ public class PostTests
         Assert.Contains("Address ne može biti null ili prazan string!", ex.Message);
         _personServiceMock.Verify(
             p => p.Add(personRequest.FirstName, personRequest.LastName, personRequest.Email,
-                personRequest.Adress, personRequest.PhoneNumber),
+                personRequest.Address, personRequest.PhoneNumber),
             Times.Never);
     }
 
@@ -126,7 +126,7 @@ public class PostTests
         Assert.Contains("Email ne može biti null ili prazan string!", ex.Message);
         _personServiceMock.Verify(
             p => p.Add(personRequest.FirstName, personRequest.LastName, personRequest.Email,
-                personRequest.Adress, personRequest.PhoneNumber),
+                personRequest.Address, personRequest.PhoneNumber),
             Times.Never);
     }
 }

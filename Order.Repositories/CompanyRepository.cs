@@ -8,8 +8,8 @@ namespace Order.Repositories;
 
 public class CompanyRepository : ICompanyRepository
 {
-    // <summary>
-    /// Properti datacontext-a zaduženog za rad sa bazom
+    /// <summary>
+    ///     Properti datacontext-a zaduženog za rad sa bazom
     /// </summary>
     private readonly DatabaseContext _databaseContext;
 
@@ -27,11 +27,11 @@ public class CompanyRepository : ICompanyRepository
         await _databaseContext.SaveChangesAsync();
     }
 
-    public async Task Add(string fullName, string registrationNumber, string adress, string phoneNumber, string email)
+    public async Task Add(string fullName, string registrationNumber, string address, string phoneNumber, string email)
     {
         var record = new CompanyRecord
         {
-            Adress = adress,
+            Adress = address,
             Email = email,
             FullName = fullName,
             PhoneNumber = phoneNumber,
@@ -56,7 +56,7 @@ public class CompanyRepository : ICompanyRepository
             Id = x.Id,
             PhoneNumber = x.PhoneNumber,
             Email = x.Email,
-            Adress = x.Adress,
+            Address = x.Adress,
             FullName = x.FullName,
             RegistrationNumber = x.RegistrationNumber
         }).ToList();
@@ -70,7 +70,7 @@ public class CompanyRepository : ICompanyRepository
         var company = new Company
         {
             Id = record.Id,
-            Adress = record.Adress,
+            Address = record.Adress,
             Email = record.Email,
             PhoneNumber = record.PhoneNumber,
             RegistrationNumber = record.RegistrationNumber,

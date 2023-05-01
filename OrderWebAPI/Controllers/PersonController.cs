@@ -18,7 +18,7 @@ public class PersonController : ControllerBase
     private readonly IPersonService _personService;
 
     /// <summary>
-    ///     Konstruktor sa parametrom servisa kompanije koji inicijalizuje ovaj servis
+    ///     Konstruktor sa parametrom servisa osobe koji inicijalizuje ovaj servis
     /// </summary>
     /// <param name="personService"></param>
     public PersonController(IPersonService personService)
@@ -41,7 +41,7 @@ public class PersonController : ControllerBase
             throw new ArgumentException("LastName ne može biti null ili prazan string!");
         if (string.IsNullOrEmpty(requestPerson.Email))
             throw new ArgumentException("Email ne može biti null ili prazan string!");
-        if (string.IsNullOrEmpty(requestPerson.Adress))
+        if (string.IsNullOrEmpty(requestPerson.Address))
             throw new ArgumentException("Address ne može biti null ili prazan string!");
         if (string.IsNullOrEmpty(requestPerson.PhoneNumber))
             throw new ArgumentException("PhoneNumber ne može biti null ili prazan string!");
@@ -50,9 +50,9 @@ public class PersonController : ControllerBase
         person.FirstName = requestPerson.FirstName;
         person.LastName = requestPerson.LastName;
         person.Email = requestPerson.Email;
-        person.Adress = requestPerson.Adress;
+        person.Address = requestPerson.Address;
         await _personService.Update(id, requestPerson.FirstName, requestPerson.LastName, requestPerson.Email,
-            requestPerson.Adress, requestPerson.PhoneNumber);
+            requestPerson.Address, requestPerson.PhoneNumber);
     }
 
     /// <summary>
@@ -101,7 +101,7 @@ public class PersonController : ControllerBase
             throw new ArgumentException("FirstName ne može biti null ili prazan string!");
         if (string.IsNullOrEmpty(requestPerson.LastName))
             throw new ArgumentException("LastName ne može biti null ili prazan string!");
-        if (string.IsNullOrEmpty(requestPerson.Adress))
+        if (string.IsNullOrEmpty(requestPerson.Address))
             throw new ArgumentException("Address ne može biti null ili prazan string!");
         if (string.IsNullOrEmpty(requestPerson.Email))
             throw new ArgumentException("Email ne može biti null ili prazan string!");
@@ -111,8 +111,8 @@ public class PersonController : ControllerBase
         person.FirstName = requestPerson.FirstName;
         person.LastName = requestPerson.LastName;
         person.Email = requestPerson.Email;
-        person.Adress = requestPerson.Adress;
+        person.Address = requestPerson.Address;
         person.PhoneNumber = requestPerson.PhoneNumber;
-        await _personService.Add(person.FirstName, person.LastName, person.Email, person.Adress, person.PhoneNumber);
+        await _personService.Add(person.FirstName, person.LastName, person.Email, person.Address, person.PhoneNumber);
     }
 }

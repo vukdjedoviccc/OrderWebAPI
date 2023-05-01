@@ -11,8 +11,8 @@ namespace Order.Repositories;
 /// </summary>
 public class PersonRepository : IPersonRepository
 {
-    // <summary>
-    /// Properti datacontext-a zaduženog za rad sa bazom
+    /// <summary>
+    ///     Properti datacontext-a zaduženog za rad sa bazom
     /// </summary>
     private readonly DatabaseContext _databaseContext;
 
@@ -30,13 +30,13 @@ public class PersonRepository : IPersonRepository
         await _databaseContext.SaveChangesAsync();
     }
 
-    public async Task Add(string firstName, string lastName, string email, string adress, string phoneNumber)
+    public async Task Add(string firstName, string lastName, string email, string address, string phoneNumber)
     {
         var record = new PersonRecord
         {
             FirstName = firstName,
             LastName = lastName,
-            Adress = adress,
+            Adress = address,
             Email = email,
             PhoneNumber = phoneNumber
         };
@@ -62,7 +62,7 @@ public class PersonRepository : IPersonRepository
             LastName = x.LastName,
             PhoneNumber = x.PhoneNumber,
             Email = x.Email,
-            Adress = x.Adress
+            Address = x.Adress
         }).ToList();
         return persons;
     }
@@ -74,7 +74,7 @@ public class PersonRepository : IPersonRepository
         var person = new Person
         {
             Id = record.Id,
-            Adress = record.Adress,
+            Address = record.Adress,
             FirstName = record.FirstName,
             Email = record.Email,
             PhoneNumber = record.PhoneNumber,
@@ -83,7 +83,7 @@ public class PersonRepository : IPersonRepository
         return person;
     }
 
-    public async Task Update(int? id, string firstName, string lastName, string email, string adress,
+    public async Task Update(int? id, string firstName, string lastName, string email, string address,
         string phoneNumber)
     {
         var record = new PersonRecord
@@ -91,7 +91,7 @@ public class PersonRepository : IPersonRepository
             Id = id,
             FirstName = firstName,
             LastName = lastName,
-            Adress = adress,
+            Adress = address,
             Email = email,
             PhoneNumber = phoneNumber
         };

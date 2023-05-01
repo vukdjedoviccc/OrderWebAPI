@@ -26,7 +26,7 @@ public class GetByIdTests
         var personId = 1;
         _personServiceMock.Setup(p => p.GetById(personId)).ReturnsAsync(new Person
         {
-            Id = 1, FirstName = "Vuk", LastName = "Đedović", Adress = "Dragojla Lazića 18/1, Valjevo",
+            Id = 1, FirstName = "Vuk", LastName = "Đedović", Address = "Dragojla Lazića 18/1, Valjevo",
             Email = "vukdjedovic@gmail.com", PhoneNumber = "0655130477"
         });
 
@@ -38,7 +38,7 @@ public class GetByIdTests
         Assert.Equal(personId, response.Result.Value?.Id);
         Assert.Equal("Vuk", response.Result.Value?.FirstName);
         Assert.Equal("Đedović", response.Result.Value?.LastName);
-        Assert.Equal("Dragojla Lazića 18/1, Valjevo", response.Result.Value?.Adress);
+        Assert.Equal("Dragojla Lazića 18/1, Valjevo", response.Result.Value?.Address);
         Assert.Equal("vukdjedovic@gmail.com", response.Result.Value?.Email);
         Assert.Equal("0655130477", response.Result.Value?.PhoneNumber);
     }

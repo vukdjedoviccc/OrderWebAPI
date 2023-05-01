@@ -31,7 +31,7 @@ public class PostTests
 
         // Assert
         _companyServiceMock.Verify(p => p.Add(companyRequest.FullName, companyRequest.RegistrationNumber,
-            companyRequest.Adress,
+            companyRequest.Address,
             companyRequest.PhoneNumber, companyRequest.Email), Times.Once);
     }
 
@@ -49,7 +49,7 @@ public class PostTests
             () => _companyController.Post(companyRequest));
         Assert.Contains("FullName ne može biti null ili prazan string!", ex.Message);
         _companyServiceMock.Verify(
-            p => p.Add(companyRequest.FullName, companyRequest.RegistrationNumber, companyRequest.Adress,
+            p => p.Add(companyRequest.FullName, companyRequest.RegistrationNumber, companyRequest.Address,
                 companyRequest.PhoneNumber, companyRequest.Email),
             Times.Never);
     }
@@ -68,7 +68,7 @@ public class PostTests
             () => _companyController.Post(companyRequest));
         Assert.Contains("RegistrationNumber ne može biti null ili prazan string!", ex.Message);
         _companyServiceMock.Verify(
-            p => p.Add(companyRequest.FullName, companyRequest.RegistrationNumber, companyRequest.Adress,
+            p => p.Add(companyRequest.FullName, companyRequest.RegistrationNumber, companyRequest.Address,
                 companyRequest.PhoneNumber, companyRequest.Email),
             Times.Never);
     }
@@ -87,7 +87,7 @@ public class PostTests
             () => _companyController.Post(companyRequest));
         Assert.Contains("Address ne može biti null ili prazan string!", ex.Message);
         _companyServiceMock.Verify(
-            p => p.Add(companyRequest.FullName, companyRequest.RegistrationNumber, companyRequest.Adress,
+            p => p.Add(companyRequest.FullName, companyRequest.RegistrationNumber, companyRequest.Address,
                 companyRequest.PhoneNumber, companyRequest.Email),
             Times.Never);
     }
@@ -106,7 +106,7 @@ public class PostTests
             () => _companyController.Post(companyRequest));
         Assert.Contains("PhoneNumber ne može biti null ili prazan string!", ex.Message);
         _companyServiceMock.Verify(
-            p => p.Add(companyRequest.FullName, companyRequest.RegistrationNumber, companyRequest.Adress,
+            p => p.Add(companyRequest.FullName, companyRequest.RegistrationNumber, companyRequest.Address,
                 companyRequest.PhoneNumber, companyRequest.Email),
             Times.Never);
     }
@@ -125,7 +125,7 @@ public class PostTests
             () => _companyController.Post(companyRequest));
         Assert.Contains("Email ne može biti null ili prazan string!", ex.Message);
         _companyServiceMock.Verify(
-            p => p.Add(companyRequest.FullName, companyRequest.RegistrationNumber, companyRequest.Adress,
+            p => p.Add(companyRequest.FullName, companyRequest.RegistrationNumber, companyRequest.Address,
                 companyRequest.PhoneNumber, companyRequest.Email),
             Times.Never);
     }

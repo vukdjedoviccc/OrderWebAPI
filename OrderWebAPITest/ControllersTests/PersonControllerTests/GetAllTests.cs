@@ -29,17 +29,17 @@ public class GetAllTests
             {
                 new()
                 {
-                    Id = 1, FirstName = "Vuk", LastName = "Đedović", Adress = "Dragojla Lazića 18/1, Valjevo",
+                    Id = 1, FirstName = "Vuk", LastName = "Đedović", Address = "Dragojla Lazića 18/1, Valjevo",
                     Email = "vukdjedovic@gmail.com", PhoneNumber = "0655130477"
                 },
                 new()
                 {
-                    Id = 2, FirstName = "Jakov", LastName = "Ignjatović", Adress = "Vojvode Putnika 14a, Kruševac",
+                    Id = 2, FirstName = "Jakov", LastName = "Ignjatović", Address = "Vojvode Putnika 14a, Kruševac",
                     Email = "jignjatovic@gmail.com", PhoneNumber = "0637688933"
                 },
                 new()
                 {
-                    Id = 3, FirstName = "Anđela", LastName = "Jović", Adress = "Prešernova 144b, Beograd",
+                    Id = 3, FirstName = "Anđela", LastName = "Jović", Address = "Prešernova 144b, Beograd",
                     Email = "andjelaj@gmail.com", PhoneNumber = "0667329388"
                 }
             });
@@ -56,19 +56,19 @@ public class GetAllTests
         Assert.Equal(1, persons?.ToArray()[0].Id);
         Assert.Equal("Vuk", persons?.ToArray()[0].FirstName);
         Assert.Equal("Đedović", persons?.ToArray()[0].LastName);
-        Assert.Equal("Dragojla Lazića 18/1, Valjevo", persons?.ToArray()[0].Adress);
+        Assert.Equal("Dragojla Lazića 18/1, Valjevo", persons?.ToArray()[0].Address);
         Assert.Equal("vukdjedovic@gmail.com", persons?.ToArray()[0].Email);
         Assert.Equal("0655130477", persons?.ToArray()[0].PhoneNumber);
         Assert.Equal(2, persons?.ToArray()[1].Id);
         Assert.Equal("Jakov", persons?.ToArray()[1].FirstName);
         Assert.Equal("Ignjatović", persons?.ToArray()[1].LastName);
-        Assert.Equal("Vojvode Putnika 14a, Kruševac", persons?.ToArray()[1].Adress);
+        Assert.Equal("Vojvode Putnika 14a, Kruševac", persons?.ToArray()[1].Address);
         Assert.Equal("jignjatovic@gmail.com", persons?.ToArray()[1].Email);
         Assert.Equal("0637688933", persons?.ToArray()[1].PhoneNumber);
         Assert.Equal(3, persons?.ToArray()[2].Id);
         Assert.Equal("Anđela", persons?.ToArray()[2].FirstName);
         Assert.Equal("Jović", persons?.ToArray()[2].LastName);
-        Assert.Equal("Prešernova 144b, Beograd", persons?.ToArray()[2].Adress);
+        Assert.Equal("Prešernova 144b, Beograd", persons?.ToArray()[2].Address);
         Assert.Equal("andjelaj@gmail.com", persons?.ToArray()[2].Email);
         Assert.Equal("0667329388", persons?.ToArray()[2].PhoneNumber);
     }

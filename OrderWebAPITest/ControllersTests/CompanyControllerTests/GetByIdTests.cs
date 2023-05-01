@@ -27,7 +27,7 @@ public class GetByIdTests
         _companyServiceMock.Setup(p => p.GetById(companyId)).ReturnsAsync(new Company
         {
             FullName = "Silaris Solutions", RegistrationNumber = "01234567",
-            Adress = "Dragojla Lazića 18/1, Valjevo",
+            Address = "Dragojla Lazića 18/1, Valjevo",
             Email = "silaris@gmail.com", PhoneNumber = "0655130477", Id = 1
         });
 
@@ -39,7 +39,7 @@ public class GetByIdTests
         Assert.Equal(companyId, response.Result.Value?.Id);
         Assert.Equal("Silaris Solutions", response.Result.Value?.FullName);
         Assert.Equal("01234567", response.Result.Value?.RegistrationNumber);
-        Assert.Equal("Dragojla Lazića 18/1, Valjevo", response.Result.Value?.Adress);
+        Assert.Equal("Dragojla Lazića 18/1, Valjevo", response.Result.Value?.Address);
         Assert.Equal("silaris@gmail.com", response.Result.Value?.Email);
         Assert.Equal("0655130477", response.Result.Value?.PhoneNumber);
     }

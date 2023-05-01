@@ -29,7 +29,6 @@ public interface IOrderService
     /// <param name="customerId"></param>
     /// <param name="date"></param>
     /// <param name="items"></param>
-    /// <param name="order"></param>
     Task Add(int? customerId, DateTime? date, List<OrderItem>? items);
 
     /// <summary>
@@ -38,6 +37,5 @@ public interface IOrderService
     /// <param name="customerId"></param>
     /// <param name="date"></param>
     /// <param name="items"></param>
-    /// <param name="order"></param>
     Task Update(int? customerId, DateTime? date, List<OrderItem>? items);
 }

@@ -11,8 +11,8 @@ namespace Order.Repositories;
 /// </summary>
 public class ProductRepository : IProductRepository
 {
-    // <summary>
-    /// Properti datacontext-a zaduženog za rad sa bazom
+    /// <summary>
+    ///     Properti datacontext-a zaduženog za rad sa bazom
     /// </summary>
     private readonly DatabaseContext _databaseContext;
 
@@ -74,7 +74,7 @@ public class ProductRepository : IProductRepository
         return product;
     }
 
-    public async Task<List<Product>> ReturnProductsFromDB(List<OrderItem> orderItems)
+    public async Task<List<Product>> ReturnProductsFromDb(List<OrderItem> orderItems)
     {
         var productIds = orderItems.Select(o => o.ProductId).ToList();
         var records = await _databaseContext.Products.Include(p => p.PromotionProducts).ThenInclude(pp => pp.Promotion)

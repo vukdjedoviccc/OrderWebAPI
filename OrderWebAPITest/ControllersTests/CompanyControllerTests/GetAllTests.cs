@@ -30,17 +30,17 @@ public class GetAllTests
                 new()
                 {
                     FullName = "Silaris Solutions", RegistrationNumber = "01234567",
-                    Adress = "Dragojla Lazića 18/1, Valjevo",
+                    Address = "Dragojla Lazića 18/1, Valjevo",
                     Email = "silaris@gmail.com", PhoneNumber = "0655130477", Id = 1
                 },
                 new()
                 {
-                    FullName = "Intelisale", RegistrationNumber = "12345678", Adress = "Cara Dušaana 12, Loznica",
+                    FullName = "Intelisale", RegistrationNumber = "12345678", Address = "Cara Dušaana 12, Loznica",
                     Email = "intelisale@gmail.com", PhoneNumber = "0645233699", Id = 2
                 },
                 new()
                 {
-                    FullName = "GoPro", RegistrationNumber = "23456789", Adress = "Vojovde Mišića 142, Beograd",
+                    FullName = "GoPro", RegistrationNumber = "23456789", Address = "Vojovde Mišića 142, Beograd",
                     Email = "gopro@gmail.com", PhoneNumber = "0642193758", Id = 3
                 }
             });
@@ -57,19 +57,19 @@ public class GetAllTests
         Assert.Equal(1, companies?.ToArray()[0].Id);
         Assert.Equal("Silaris Solutions", companies?.ToArray()[0].FullName);
         Assert.Equal("01234567", companies?.ToArray()[0].RegistrationNumber);
-        Assert.Equal("Dragojla Lazića 18/1, Valjevo", companies?.ToArray()[0].Adress);
+        Assert.Equal("Dragojla Lazića 18/1, Valjevo", companies?.ToArray()[0].Address);
         Assert.Equal("silaris@gmail.com", companies?.ToArray()[0].Email);
         Assert.Equal("0655130477", companies?.ToArray()[0].PhoneNumber);
         Assert.Equal(2, companies?.ToArray()[1].Id);
         Assert.Equal("Intelisale", companies?.ToArray()[1].FullName);
         Assert.Equal("12345678", companies?.ToArray()[1].RegistrationNumber);
-        Assert.Equal("Cara Dušaana 12, Loznica", companies?.ToArray()[1].Adress);
+        Assert.Equal("Cara Dušaana 12, Loznica", companies?.ToArray()[1].Address);
         Assert.Equal("intelisale@gmail.com", companies?.ToArray()[1].Email);
         Assert.Equal("0645233699", companies?.ToArray()[1].PhoneNumber);
         Assert.Equal(3, companies?.ToArray()[2].Id);
         Assert.Equal("GoPro", companies?.ToArray()[2].FullName);
         Assert.Equal("23456789", companies?.ToArray()[2].RegistrationNumber);
-        Assert.Equal("Vojovde Mišića 142, Beograd", companies?.ToArray()[2].Adress);
+        Assert.Equal("Vojovde Mišića 142, Beograd", companies?.ToArray()[2].Address);
         Assert.Equal("gopro@gmail.com", companies?.ToArray()[2].Email);
         Assert.Equal("0642193758", companies?.ToArray()[2].PhoneNumber);
     }

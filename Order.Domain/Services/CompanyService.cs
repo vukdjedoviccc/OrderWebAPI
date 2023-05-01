@@ -22,9 +22,9 @@ public class CompanyService : ICompanyService
         _companyRepository = companyRepository;
     }
 
-    public async Task Add(string fullName, string registrationNumber, string adress, string phoneNumber, string email)
+    public async Task Add(string fullName, string registrationNumber, string address, string phoneNumber, string email)
     {
-        await _companyRepository.Add(fullName, registrationNumber, adress, phoneNumber, email);
+        await _companyRepository.Add(fullName, registrationNumber, address, phoneNumber, email);
         await _companyRepository.SaveChanges();
     }
 

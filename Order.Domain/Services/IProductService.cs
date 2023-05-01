@@ -10,13 +10,14 @@ public interface IProductService
     /// <summary>
     ///     Metoda koja pomoću repozitorijuma pristupa bazi kako bi u nju dodala proizvod
     /// </summary>
-    /// <param name="product"></param>
+    /// <param name="name"></param>
+    /// <param name="price"></param>
     Task AddProduct(string name, decimal price);
 
     /// <summary>
     ///     Metoda koja pomoću repozitorijuma pristupa bazi kako bi iz nje vratila konkretan proizvod na osnovu njegovog id-ja
     /// </summary>
-    /// <param name="id"></param
+    /// <param name="id"></param>
     Task<Product> GetById(int? id);
 
     /// <summary>
@@ -33,6 +34,8 @@ public interface IProductService
     /// <summary>
     ///     Metoda koja pomoću repozitorijuma pristupa bazi kako bi u njoj ažurirala proizvod
     /// </summary>
-    /// <param name="product"></param>
+    /// <param name="id"></param>
+    /// <param name="name"></param>
+    /// <param name="price"></param>
     Task Update(int? id, string name, decimal price);
 }

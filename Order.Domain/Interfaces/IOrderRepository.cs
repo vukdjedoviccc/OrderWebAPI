@@ -17,7 +17,7 @@ public interface IOrderRepository
     Task Add(Model.Order order);
 
     /// <summary>
-    ///     Metoda koja briše narudžbinu iz baze na osnovu id-ja
+    ///     Metoda koja briše narudžbinu iz baze na osnovu njenog id-ja
     /// </summary>
     /// <param name="id"></param>
     Task Delete(int? id);
@@ -25,13 +25,12 @@ public interface IOrderRepository
     /// <summary>
     ///     Metoda koja vraća narudžbinu iz baze na osnovu njenog id-ja
     /// </summary>
-    /// <param name="order"></param>
+    /// <param name="id"></param>
     Task<Model.Order> GetById(int? id);
 
     /// <summary>
     ///     Metoda koja vraća listu svih narudžbina iz baze
     /// </summary>
-    /// <param name="order"></param>
     Task<List<Model.Order>> GetAll();
 
     /// <summary>

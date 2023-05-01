@@ -15,7 +15,7 @@ public class CreateOrderRequest
     public List<OrderItem>? Items { get; set; }
 
     /// <summary>
-    ///     Id kupca
+    ///     Id kupca koji je kreirao narudžbinu
     /// </summary>
     public int CustomerId { get; set; }
 }

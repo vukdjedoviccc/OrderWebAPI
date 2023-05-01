@@ -8,8 +8,8 @@ namespace Order.Domain.Services;
 /// </summary>
 public class ProductService : IProductService
 {
-    // <summary>
-    /// Properti repozitorijuma proizvoda koji se inject-uje u konstruktoru servisa
+    /// <summary>
+    ///     Properti repozitorijuma proizvoda koji se inject-uje u konstruktoru servisa
     /// </summary>
     private readonly IProductRepository _productRepository;
 

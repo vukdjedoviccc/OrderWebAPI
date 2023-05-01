@@ -15,8 +15,12 @@ public interface ICompanyRepository
     /// <summary>
     ///     Metoda koja dodaje kompaniju u bazu
     /// </summary>
-    /// <param name="company"></param>
-    Task Add(string fullName, string registrationNumber, string adress, string phoneNumber, string Email);
+    /// <param name="fullName"></param>
+    /// <param name="registrationNumber"></param>
+    /// <param name="address"></param>
+    /// <param name="phoneNumber"></param>
+    /// <param name="email"></param>
+    Task Add(string fullName, string registrationNumber, string address, string phoneNumber, string email);
 
     /// <summary>
     ///     Metoda koja briše konkretnu kompaniju iz baze na osnovu njenog id-ja
@@ -38,6 +42,11 @@ public interface ICompanyRepository
     /// <summary>
     ///     Metoda koja ažurira kompaniju u bazi
     /// </summary>
-    /// <param name="company"></param>
-    Task Update(int? id, string address, string fullName, string email, string phoneNumber, string registrationNumbery);
+    /// <param name="id"></param>
+    /// <param name="fullName"></param>
+    /// <param name="registrationNumber"></param>
+    /// <param name="address"></param>
+    /// <param name="phoneNumber"></param>
+    /// <param name="email"></param>
+    Task Update(int? id, string address, string fullName, string email, string phoneNumber, string registrationNumber);
 }

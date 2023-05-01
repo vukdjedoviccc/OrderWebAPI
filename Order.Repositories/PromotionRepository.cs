@@ -11,8 +11,8 @@ namespace Order.Repositories;
 /// </summary>
 public class PromotionRepository : IPromotionRepository
 {
-    // <summary>
-    /// Properti datacontext-a zaduženog za rad sa bazom
+    /// <summary>
+    ///     Properti datacontext-a zaduženog za rad sa bazom
     /// </summary>
     private readonly DatabaseContext _databaseContext;
 
@@ -117,7 +117,7 @@ public class PromotionRepository : IPromotionRepository
     /// <summary>
     ///     Metoda koja vraća proizvod koji ima aktivnu promociju
     /// </summary>
-    /// <param name="orderItems"></param>
+    /// <param name="promotionProductRecord"></param>
     private Product GetProduct(PromotionProductRecord promotionProductRecord)
     {
         return new Product

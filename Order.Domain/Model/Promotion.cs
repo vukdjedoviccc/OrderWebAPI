@@ -35,15 +35,6 @@ public class Promotion
     }
 
     /// <summary>
-    ///     Parametarski konstruktor klase Customer
-    /// </summary>
-    /// <param name="fullName"></param>
-    /// <param name="registrationNumber"></param>
-    /// <param name="adress"></param>
-    /// <param name="phoneNumber"></param>
-    /// <param name="email"></param>
-    /// <param name="id"></param>
-    /// <summary>
     ///     Id promocije
     /// </summary>
     public int Id

@@ -35,7 +35,7 @@ public class CompanyController : ControllerBase
     public async Task Put(int? id, CreateCompanyRequest requestCompany)
     {
         if (id <= 0) throw new ArgumentException("Id ne može biti negativan broj ili jednak nuli!");
-        if (string.IsNullOrEmpty(requestCompany.Adress))
+        if (string.IsNullOrEmpty(requestCompany.Address))
             throw new ArgumentException("Address ne može biti null ili prazan string!");
         if (string.IsNullOrEmpty(requestCompany.FullName))
             throw new ArgumentException("FullName ne može biti null ili prazan string!");
@@ -47,12 +47,12 @@ public class CompanyController : ControllerBase
             throw new ArgumentException("RegistrationNumber ne može biti null ili prazan string!");
         var company = await _companyService.GetById(id);
         if (company is null) throw new NullReferenceException($"Objekat sa Id-jem {id} se ne nalazi u bazi!");
-        company.Adress = requestCompany.Adress;
+        company.Address = requestCompany.Address;
         company.PhoneNumber = requestCompany.PhoneNumber;
         company.RegistrationNumber = requestCompany.RegistrationNumber;
         company.Email = requestCompany.Email;
         company.FullName = requestCompany.FullName;
-        await _companyService.Update(id, requestCompany.Adress, requestCompany.FullName, requestCompany.Email,
+        await _companyService.Update(id, requestCompany.Address, requestCompany.FullName, requestCompany.Email,
             requestCompany.PhoneNumber, requestCompany.RegistrationNumber);
     }
 
@@ -102,7 +102,7 @@ public class CompanyController : ControllerBase
             throw new ArgumentException("FullName ne može biti null ili prazan string!");
         if (string.IsNullOrEmpty(requestCompany.RegistrationNumber))
             throw new ArgumentException("RegistrationNumber ne može biti null ili prazan string!");
-        if (string.IsNullOrEmpty(requestCompany.Adress))
+        if (string.IsNullOrEmpty(requestCompany.Address))
             throw new ArgumentException("Address ne može biti null ili prazan string!");
         if (string.IsNullOrEmpty(requestCompany.PhoneNumber))
             throw new ArgumentException("PhoneNumber ne može biti null ili prazan string!");
@@ -111,10 +111,10 @@ public class CompanyController : ControllerBase
         var company = new Company();
         company.FullName = requestCompany.FullName;
         company.RegistrationNumber = requestCompany.RegistrationNumber;
-        company.Adress = requestCompany.Adress;
+        company.Address = requestCompany.Address;
         company.PhoneNumber = requestCompany.PhoneNumber;
         company.Email = requestCompany.Email;
-        await _companyService.Add(company.FullName, company.RegistrationNumber, company.Adress, company.PhoneNumber,
+        await _companyService.Add(company.FullName, company.RegistrationNumber, company.Address, company.PhoneNumber,
             company.Email);
     }
 }

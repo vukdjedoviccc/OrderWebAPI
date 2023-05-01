@@ -7,7 +7,7 @@ namespace Order.Domain.Model;
 /// </summary>
 public class Customer
 {
-    private string _adress;
+    private string _address;
     private string _email;
     private int _id;
     private string _phoneNumber;
@@ -22,13 +22,13 @@ public class Customer
     /// <summary>
     ///     Parametarski konstruktor klase Customer
     /// </summary>
-    /// <param name="adress"></param>
+    /// <param name="address"></param>
     /// <param name="phoneNumber"></param>
     /// <param name="email"></param>
     /// <param name="id"></param>
-    public Customer(string adress, string phoneNumber, string email, int id)
+    public Customer(string address, string phoneNumber, string email, int id)
     {
-        Adress = adress;
+        Address = address;
         PhoneNumber = phoneNumber;
         Email = email;
         Id = id;
@@ -51,14 +51,14 @@ public class Customer
     /// <summary>
     ///     Adresa kupca
     /// </summary>
-    public string Adress
+    public string Address
     {
-        get => _adress;
+        get => _address;
         set
         {
             Validations.NotNullOrEmpty(value);
             Validations.StringLengthLessThanOrEqualTo(value, 40);
-            _adress = value;
+            _address = value;
         }
     }
 

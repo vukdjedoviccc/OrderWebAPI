@@ -11,8 +11,8 @@ namespace Order.Repositories;
 /// </summary>
 public class OrderRepository : IOrderRepository
 {
-    // <summary>
-    /// Properti datacontext-a zaduženog za rad sa bazom
+    /// <summary>
+    ///     Properti datacontext-a zaduženog za rad sa bazom
     /// </summary>
     private readonly DatabaseContext _databaseContext;
 
@@ -32,7 +32,7 @@ public class OrderRepository : IOrderRepository
 
     public async Task Add(Domain.Model.Order order)
     {
-        var orderItems = order.OrderItems.Select(x => new OrderItemRecord
+        var orderItems = order.OrderItems!.Select(x => new OrderItemRecord
         {
             Amount = x.Amount,
             ProductId = x.ProductId,
@@ -71,10 +71,10 @@ public class OrderRepository : IOrderRepository
     {
         var orderRecord = await _databaseContext.Orders.Include(o => o.OrderItems).ThenInclude(oi => oi.Product)
             .FirstOrDefaultAsync(o => o.Id == order.Id);
-        orderRecord.Date = order.Date;
+        orderRecord!.Date = order.Date;
         orderRecord.CustomerId = order.CustomerId;
         orderRecord.TotalAmount = order.TotalAmount;
-        var orderItems = order.OrderItems.Select(x => new OrderItemRecord
+        var orderItems = order.OrderItems!.Select(x => new OrderItemRecord
         {
             Id = x.Id,
             ProductId = x.ProductId,

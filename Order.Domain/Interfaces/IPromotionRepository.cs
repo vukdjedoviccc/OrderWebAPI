@@ -30,7 +30,7 @@ public interface IPromotionRepository
     Task<List<Promotion>> GetAll();
 
     /// <summary>
-    ///     Metoda koja vraća konkretnu promociju iz baze na osnovu njegovog id-ja
+    ///     Metoda koja vraća konkretnu promociju iz baze na osnovu njenog id-ja
     /// </summary>
     /// <param name="id"></param>
     Task<Promotion> GetById(int id);

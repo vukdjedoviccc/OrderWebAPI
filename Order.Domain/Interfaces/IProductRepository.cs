@@ -15,7 +15,8 @@ public interface IProductRepository
     /// <summary>
     ///     Metoda koja dodaje proizvod u bazu
     /// </summary>
-    /// <param name="product"></param>
+    /// <param name="name"></param>
+    /// <param name="price"></param>
     Task Add(string name, decimal price);
 
     /// <summary>
@@ -39,11 +40,13 @@ public interface IProductRepository
     ///     Metoda koja vraća listu proizvoda iz baze koji čine stavke narudžbine
     /// </summary>
     /// <param name="orderItems"></param>
-    Task<List<Product>> ReturnProductsFromDB(List<OrderItem> orderItems);
+    Task<List<Product>> ReturnProductsFromDb(List<OrderItem> orderItems);
 
     /// <summary>
     ///     Metoda koja ažurira proizvod u bazi
     /// </summary>
-    /// <param name="product"></param>
+    /// <param name="id"></param>
+    /// <param name="name"></param>
+    /// <param name="price"></param>
     Task Update(int? id, string name, decimal price);
 }

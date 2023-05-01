@@ -5,7 +5,7 @@ namespace Order.Domain.Helper;
 /// <summary>
 ///     Klasa koja sadrži metodu za rad sa JSON fajlovima
 /// </summary>
-public class JsonHelper
+public static class JsonHelper
 {
     /// <summary>
     ///     Metoda pomoću koje se upisuju narudžbine u JSON fajl

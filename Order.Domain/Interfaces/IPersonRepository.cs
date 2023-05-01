@@ -15,8 +15,12 @@ public interface IPersonRepository
     /// <summary>
     ///     Metoda koja dodaje osobu u bazu
     /// </summary>
-    /// <param name="person"></param>
-    Task Add(string firstName, string lastName, string email, string adress, string phoneNumber);
+    /// <param name="firstName"></param>
+    /// <param name="lastName"></param>
+    /// <param name="email"></param>
+    /// <param name="address"></param>
+    /// <param name="phoneNumber"></param>
+    Task Add(string firstName, string lastName, string email, string address, string phoneNumber);
 
     /// <summary>
     ///     Metoda koja briše osobu iz baze na osnovu njenog id-ja
@@ -38,6 +42,11 @@ public interface IPersonRepository
     /// <summary>
     ///     Metoda koja ažurira osobu u bazi
     /// </summary>
-    /// <param name="person"></param>
-    Task Update(int? id, string firstName, string lastName, string email, string adress, string phoneNumber);
+    /// <param name="id"></param>
+    /// <param name="firstName"></param>
+    /// <param name="lastName"></param>
+    /// <param name="email"></param>
+    /// <param name="address"></param>
+    /// <param name="phoneNumber"></param>
+    Task Update(int? id, string firstName, string lastName, string email, string address, string phoneNumber);
 }
